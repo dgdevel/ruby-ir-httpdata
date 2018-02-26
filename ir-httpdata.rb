@@ -44,3 +44,8 @@ def get_member_brief_stats(custid)
   JSON.parse data
 end
 
+def get_member_career_stats(custid)
+  res = $client.get("/memberstats/member/GetCareerStats?custid=#{custid}", {'Cookie' => $cookies})
+  JSON.parse res.body
+end
+
