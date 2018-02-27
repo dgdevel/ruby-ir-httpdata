@@ -68,7 +68,8 @@ $licenses = {
   3 => 'C',
   4 => 'B',
   5 => 'A',
-  6 => 'P'
+  # no 6
+  7 => 'P'
 }
 
 def get_license_class(custId, catId)
