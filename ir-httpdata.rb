@@ -74,6 +74,6 @@ $licenses = {
 
 def get_license_class(custId, catId)
   v = get_chart_data(custId, catId, 3)[-1][1]
-  "#{$licenses[v/1000]} #{(v%1000)/100.0}"
+  "#{$licenses[v/1000]} #{'%.2f' % ((v%1000)/100.0)}"
 end
 
