@@ -19,6 +19,8 @@ iRacing http data for ruby
 
 `get_license_class(custId, catId)`: get the text representing the license class for the catId selected
 
+`get_official_races(seasonId)`: list the official races for a given season, calling 12 times get_races, and filtering the results.
+
 The data format isn't documented since it isn't an official API.
 
 Rate limit the requests to avoid problems to the iracing servers.

@@ -39,6 +39,12 @@ def get_races(seasonid, raceweek)
   JSON.parse res.body
 end
 
+def get_official_races(seasonid)
+  (0..11).to_a.map do |w|
+    get_races(seasonid,w)["d"].select do |r| r["6"] == 1 end
+  end.reduce(:concat)
+end
+
 # ugly hack, but better than the rest of the APIs
 def get_member_brief_stats(custid)
   res = $client.get("/membersite/member/CareerStats.do?custid=#{custid}", $headers)
