@@ -83,3 +83,8 @@ def get_license_class(custId, catId)
   "#{$licenses[v/1000]} #{'%.2f' % ((v%1000)/100.0)}"
 end
 
+def get_all_seasons()
+  res = $client.get("/membersite/member/GetSeasons?onlyActive=0&fields=year,quarter,seriesshortname,seriesid,active,catid,licenseeligible,islite,carclasses,tracks,start,end,cars,raceweek,category,serieslicgroupid,carid,seasonid,seriesid", $headers);
+  JSON.parse res.body
+end
+
