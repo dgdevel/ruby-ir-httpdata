@@ -88,3 +88,8 @@ def get_all_seasons()
   JSON.parse res.body
 end
 
+def send_private_message(toUsername, subject, message)
+  res = $client.post("/jforum/jforum.page",
+    "action=sendSave&module=pm&toUsername=#{CGI::escape toUsername}&subject=#{CGI::escape subject}&message=#{CGI::escape message}", $headers)
+end
+

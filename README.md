@@ -23,6 +23,8 @@ iRacing http data for ruby
 
 `get_all_seasons()`: list all the seasons ever run or currently running on iRacing
 
+`send_private_message(toUsername, subject, message)`: send a private message on the iRacing forum
+
 The data format isn't documented since it isn't an official API.
 
 Rate limit the requests to avoid problems to the iracing servers.
