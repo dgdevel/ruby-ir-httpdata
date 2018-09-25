@@ -21,6 +21,8 @@ iRacing http data for ruby
 
 `get_official_races(seasonId)`: list the official races for a given season, calling 12 times get_races, and filtering the results.
 
+`get_all_seasons()`: list all the seasons ever run or currently running on iRacing
+
 The data format isn't documented since it isn't an official API.
 
 Rate limit the requests to avoid problems to the iracing servers.
