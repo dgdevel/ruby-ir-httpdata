@@ -93,3 +93,13 @@ def send_private_message(toUsername, subject, message)
     "action=sendSave&module=pm&toUsername=#{CGI::escape toUsername}&subject=#{CGI::escape subject}&message=#{CGI::escape message}", $headers)
 end
 
+# 6,9,11 current farmId
+def get_farm_cars(farmId)
+	res = $client.get("/membersite/member/GetFarmCars?farmID=#{farmId}", $headers)
+	JSON.parse res.body
+end
+def get_farm_tracks(farmId)
+	res = $client.get("/membersite/member/GetFarmTracks?farmID=#{farmId}", $headers)
+	JSON.parse res.body
+end
+
