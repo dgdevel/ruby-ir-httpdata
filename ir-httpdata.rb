@@ -11,7 +11,8 @@ $cookies = nil
 $headers = nil
 
 def login(username, password)
-  $client = Net::HTTP.new 'members.iracing.com', 80
+  $client = Net::HTTP.new 'members.iracing.com', 443
+  $client.use_ssl=true
   # $client.set_debug_output $stderr
   res = $client.post('/jforum/Login',
     "username=#{CGI::escape username}&password=#{CGI::escape password}")
