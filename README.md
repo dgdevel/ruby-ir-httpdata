@@ -3,7 +3,9 @@ iRacing http data for ruby
 
 # Usage
 
-`login(username, password)`: execute the login of the client, REQUIRED step
+`login(username, password)`: execute the login of the client, REQUIRED step; this don't work anymore, see `autologin`
+
+`autologin`: read cookies from auth.txt and execute login from existing cookies
 
 `get_event_results(subsessionID)`: get the stats for a given subsessionID
 

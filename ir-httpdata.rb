@@ -10,6 +10,24 @@ $client = nil
 $cookies = nil
 $headers = nil
 
+
+def autologin()
+  auth = IO.read('auth.txt').split('\n')
+  $cookies = auth.join('; ')
+  $headers = { 'Cookie' => $cookies }
+  $client = Net::HTTP.new 'members.iracing.com', 443
+  $client.use_ssl=true
+  # $client.set_debug_output $stderr
+  res = $client.get('/membersite/AutoLogin', $headers)
+  if res['Location'] and res['Location'] == 'http://members.iracing.com/membersite/member/Home.do'
+    $cookies = res.to_hash['set-cookie']&.collect{|ea| ea[/^.*?;/]}.join
+    $headers = { 'Cookie' => $cookies }
+  else
+    $client = nil
+  end
+  $client != nil
+end
+
 def login(username, password)
   $client = Net::HTTP.new 'members.iracing.com', 443
   $client.use_ssl=true
